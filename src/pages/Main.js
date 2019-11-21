@@ -5,9 +5,9 @@ import api from '../services/api';
 
 import { Post, Header, Avatar, Name, Description } from './styles';
 
-import direction from '../assets/Main/direction.jpg';
+import direction from '../assets/Main/direction.png';
 import lab from '../assets/Main/laboratorio.png';
-import calendar from '../assets/Main/calendar.jpg';
+import calendar from '../assets/Main/calendar.png';
 
 const DATA = [
   {
@@ -23,7 +23,7 @@ const DATA = [
   {
     id: '2',
     title: 'Agenda cultural Anima',
-    imagem: calendar
+    image: calendar
   },
 ];
 

@@ -46,12 +46,14 @@ export default function BuscaSala({ navigation }) {
     const response = await api.get('http://127.0.0.1:5000/aluno/materias/localizacao',
       { 'headers': { 'token': aluno.token, 'id_disciplina': id } }
     )
+    
+    setShowModal(true)
     setDados(response.data[0])
   }
   
   useEffect(() => {
     async function reloadModal() {
-      setSala(dados.sala);
+      setSala(dados.nome);
       setLocal(dados.localizacao)
     }
     reloadModal()
@@ -100,7 +102,7 @@ export default function BuscaSala({ navigation }) {
             >{local}</Text>
             <TouchableHighlight
               style={styles.btnClose}
-              onPress={() => modalVisible(false, "")}
+              onPress={() => apresentaModal(0)}
             >
               <Text
                 style={styles.btnLabel}
