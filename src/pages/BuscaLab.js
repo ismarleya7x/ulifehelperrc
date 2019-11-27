@@ -5,6 +5,9 @@ import api from '../services/api';
 
 import { Post, Header, Avatar, Name, Description } from './styles';
 
+import ocupado from '../assets/Main/ocupado.png';
+import livre from '../assets/Main/livre.png';
+
 // import { Container } from './styles';
 
 export default function BuscaSala({ navigation }) {
@@ -65,7 +68,11 @@ export default function BuscaSala({ navigation }) {
               onPress={() => modalVisible(true, item)}
             >
               <Header>
-                <Avatar />
+                {item.status == "Livre"
+                  ? <Avatar source={livre} />
+                  : <Avatar source={ocupado} />
+                }
+
               </Header>
               <Description>
                 <Name>{item.sala} - </Name>
@@ -87,15 +94,15 @@ export default function BuscaSala({ navigation }) {
             <Text
               style={styles.modalLocalizacao}
             >{local}</Text>
-            <TouchableHighlight
-              style={styles.btnClose}
-              onPress={() => modalVisible(false, "")}
-            >
-              <Text
-                style={styles.btnLabel}
-              >Fechar</Text>
-            </TouchableHighlight>
           </View>
+          <TouchableHighlight
+            style={styles.btnClose}
+            onPress={() => modalVisible(false, "")}
+          >
+            <Text
+              style={styles.btnLabel}
+            >Fechar</Text>
+          </TouchableHighlight>
         </View>
       </Modal>
     </LinearGradient >
@@ -144,8 +151,8 @@ const styles = StyleSheet.create({
   btnClose: {
     width: 225,
     borderRadius: 10,
-    top: "50%",
-    left: "12%",
+    top: "-15%",
+    //left: "12%",
     backgroundColor: '#0000ff',
     padding: 10,
   },
